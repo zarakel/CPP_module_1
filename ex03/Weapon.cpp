@@ -1,7 +1,7 @@
 #include "Weapon.hpp"
 #include <iostream>
 
-Weapon::Weapon( void ) : _type("chibre")
+Weapon::Weapon( void ) : _type("brioche")
 {
 }
 
