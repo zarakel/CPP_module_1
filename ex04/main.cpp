@@ -7,15 +7,20 @@ int	main(int ac, char **av)
 	{
 		std::string filename( av[1] );
 		filename += ".replace";
-		std::ifstream file( av[1] );
-		std::ofstream fichier( filename );
+		std::ifstream ifile( av[1] );
+		if (filename.find( av[1] ) == (size_t)-1)
+		{
+			std::cout << "It's an error for whatever reason" << std::endl;
+			exit(-1);
+		}
+		std::ofstream ofile( filename );
 		std::string str1( av[2] );
 		std::string str2( av[3] );
 		std::string str;
 		int	i;
 		char	c;
 
-		while ( file.get(c) )
+		while ( ifile.get(c) )
 			str += c;
 		std::cout << str;
 		i = str.find(str1);
@@ -26,7 +31,7 @@ int	main(int ac, char **av)
 			i = str.find(str1);
 		}
 		std::cout << str;
-		fichier << str;
+		ofile << str;
 	}
 	else
 	std::cout << "I'm disappointed" << std::endl;
