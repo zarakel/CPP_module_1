@@ -23,14 +23,12 @@ int	main(int ac, char **av)
 		while ( ifile.get(c) )
 			str += c;
 		std::cout << str;
-		i = str.find(str1);
 		while (i != -1)
 		{
 			str.erase( i, str1.size());
 			str.insert( i, str2 );
 			i = str.find(str1);
 		}
-		std::cout << str;
 		ofile << str;
 	}
 	else
