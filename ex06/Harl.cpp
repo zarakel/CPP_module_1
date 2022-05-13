@@ -16,16 +16,42 @@ void	Harl::complain(std::string level)
 {
 	void (Harl::*tabf[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string tab[] ={"debug", "info","warning", "error"};
-	for (int i = 0; i < 4; i++)
+	char c;
+	if (level == "debug")
+		c = 'd';
+	if (level == "info")
+		c = 'i';
+	if (level == "warning")
+		c = 'w';
+	if (level == "error")
+		c = 'e';
+	switch(c)
 	{
-		if (level == tab[i])
+		case 'd':
 		{
-			while(i < 4)
-			{
+			for(int i = 0; i != 4; i++)
 				(this->*tabf[i])();
-				i++;
-			}
+			break ;
 		}
+		case 'i':
+		{
+			for(int i = 1; i != 4; i++)
+				(this->*tabf[i])();
+			break ;
+		}
+		case 'w':
+		{
+			for(int i = 2; i != 4; i++)
+				(this->*tabf[i])();
+			break ;
+		}
+		case 'e':
+		{
+			for(int i = 3; i != 4; i++)
+				(this->*tabf[i])();
+			break ;
+		}
+
 	}
 }
 
