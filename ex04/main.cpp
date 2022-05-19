@@ -17,12 +17,14 @@ int	main(int ac, char **av)
 		std::string str1( av[2] );
 		std::string str2( av[3] );
 		std::string str;
-		int	i;
 		char	c;
+		int i;
 
 		while ( ifile.get(c) )
 			str += c;
 		std::cout << str;
+		i = str.find(str1);
+		std::cout << i << std::endl;
 		while (i != -1)
 		{
 			str.erase( i, str1.size());
